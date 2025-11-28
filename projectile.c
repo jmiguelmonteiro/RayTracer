@@ -1,4 +1,4 @@
-#include "rt.h"
+#include "raytracer.h"
 
 typedef struct s_projectile
 {
@@ -29,6 +29,7 @@ int	main(void)
 {
 	t_projectile	p;
 	t_environment	e;
+	t_canvas		*c;
 
 	p.position = point(0, 1, 0);
 	p.velocity = normalize(vector(1, 1, 0));
@@ -43,6 +44,12 @@ int	main(void)
 		p = tick(e, p);
 		printf("Tick: %d pos x: %f y: %f\n", i, p.position.x, p.position.y);
 	}
+	printf("\n");
+
+	c = canvas(5, 3);
+	canvas_to_ppm(c);
+
+	free_canvas(c);
 }
 
 /*

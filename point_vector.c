@@ -1,4 +1,4 @@
-#include "rt.h"
+	#include "raytracer.h"
 
 t_tuple	point(double x, double y, double z)
 {

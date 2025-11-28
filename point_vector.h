@@ -1,11 +1,5 @@
-#ifndef RT_H
-# define RT_H
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-
-#define EPSILON 0.00001;
+#ifndef POINT_VECTOR_H
+# define POINT_VECTOR_H
 
 typedef struct	s_tuple
 {
