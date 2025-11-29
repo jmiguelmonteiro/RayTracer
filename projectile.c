@@ -32,21 +32,24 @@ int	main(void)
 	t_canvas		*c;
 
 	p.position = point(0, 1, 0);
-	p.velocity = normalize(vector(1, 1, 0));
+	p.velocity = multiply(normalize(vector(1, 1.8, 0)), 11.25);
 	e.gravity = vector(0, -0.1, 0);
 	e.wind = vector(-0.01, 0, 0);
 
+	c = canvas(900, 550);
+	
 	int i = 0;
-	printf("Tick: %d pos x: %f y: %f\n", i, p.position.x, p.position.y);
+	// printf("Tick: %d pos x: %f y: %f\n", i, p.position.x, p.position.y);
+	write_pixel(c, p.position.x, c->height - p.position.y, color(1,0,0));
 	while (p.position.y > 0)
 	{
 		i++;
 		p = tick(e, p);
-		printf("Tick: %d pos x: %f y: %f\n", i, p.position.x, p.position.y);
+		// printf("Tick: %d pos x: %f y: %f\n", i, p.position.x, p.position.y);
+		write_pixel(c, p.position.x, c->height - p.position.y, color(1,0,0));
 	}
-	printf("\n");
+	// printf("\n");
 
-	c = canvas(5, 3);
 	canvas_to_ppm(c);
 
 	free_canvas(c);
